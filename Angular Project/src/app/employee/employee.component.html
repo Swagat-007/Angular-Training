@@ -1,0 +1,97 @@
+<div class="modal-body row">
+    <div class="col-md-6">
+        <form [formGroup]="Employee" (ngSubmit)="onSubmit()" class="col-md-4">
+            <h2>User Form</h2>
+                
+            <div>
+                <div class="row g-3">
+                    <div class="col">
+
+                        <div>
+                            <div>
+                            <div class="form-group">
+                            <input type="text" placeholder="Enter name" formControlName="name" [pattern]="namepattern">
+                            <div style="color: red;" *ngIf="Employee.controls['name'].touched && Employee.controls['name'].invalid">
+                                <span *ngIf="Employee.controls['name'].hasError('required')">name is required</span>
+                                <!-- <span *ngIf="Employee.controls['name'].hasError('pattern')">only alphabate with
+                                    space between 2 to 20 charecters
+                                </span> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                    <div class="col">
+                        <div>
+                            <div class="form-group">
+                            <input type="text" placeholder="mobile no" formControlName="mobno" required>
+                            <div style="color: red;"  *ngIf="Employee.controls['mobno'].touched && Employee.controls['mobno'].invalid">
+                                <span *ngIf="Employee.controls['mobno'].hasError('required')">mobile no is required *</span>
+                               
+                            </div>
+                        </div>
+                    </div>
+                </div>
+           </div>
+                <!-- <div class="row">
+                    
+                </div> -->
+                    
+                    </div>
+                    <div class="form-group">
+                         <input type="text" placeholder="address" formControlName="address" required>
+                        <div style="color: red;"  *ngIf="Employee.controls['address'].touched && Employee.controls['address'].invalid">
+                        <span *ngIf="Employee.controls['address'].hasError('required')">address is required *</span>
+                    </div>
+                    </div>
+
+                    <!-- <div class="form-group">
+
+                        <button class="btn btn-success btn-lg btn-block" (click)="submitdata(s.emp)">Submit</button>
+              
+                    </div>
+                    <div class="form-group">
+                        <button class="btn btn-warning btn-lg btn-block" (click)="reset()">reset</button>
+              
+                    </div> -->
+                    <div class="form-group">
+                     <button class="btn btn-success btn-sm btn-block" >Submit</button>
+                    </div>
+                    <div class="form-group">
+                      <button class="btn btn-warning btn- btn-block" (click)="reset()" >reset</button>
+                    </div>
+                  </div>
+            
+                </form>
+    </div>
+    <div class="col-md-6">   
+          <table class="table">
+            <thead class="thead-light">
+              <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Name</th>
+                <th scope="col">Address</th>
+                <th scope="col">Mobile No</th>
+                <th scope="col">Edit</th>
+                <th scope="col">Delete</th>
+              </tr>
+            </thead>
+            <tr  *ngFor = "let e of emp">
+            
+                <td>{{e.id}}</td>
+        
+                <td>{{e.name}}</td>
+        
+                <td>{{e.address}}</td>
+        
+                <td>{{e.mobno}}</td>
+        
+                <td><button class="btn btn-primary" type="button" (click)="edit(e.id)" >Edit</button></td>
+        
+                <td><button class="btn btn-danger"   type="button" (click)="deleteDataById(e.id)" >Delete</button></td>
+             
+            </tr>
+          </table>
+     
+            </div>
+    </div>
+  
