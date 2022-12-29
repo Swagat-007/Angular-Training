@@ -1,0 +1,85 @@
+<mat-sidenav-container fullscreen>
+
+  <mat-sidenav #sidenav>
+ 
+    <mat-nav-list (click)="sidenav.close()">
+ 
+       <a mat-list-item>
+ 
+                 <mat-icon class="material-icon">book</mat-icon>
+ 
+                 <span>Course List</span>
+ 
+             </a>
+ 
+         <a mat-list-item>
+ 
+  
+ 
+             <mat-icon>book_add</mat-icon>
+ 
+  
+ 
+             <span>Add new Course</span>
+ 
+  
+ 
+         </a>
+ 
+   </mat-nav-list>
+ 
+    </mat-sidenav>
+ 
+   <mat-toolbar color="primary">
+ 
+    <button mat-icon-button (click)="sidenav.open()">
+ 
+  
+ 
+             <mat-icon>menu</mat-icon>
+ 
+  
+ 
+         </button>
+ 
+         <a mat-button routerLink="register">
+ 
+       <mat-icon>person_add</mat-icon>
+ 
+             Register
+ 
+    </a>
+ 
+    <a mat-button routerLink="login">
+ 
+   <mat-icon>account_circle</mat-icon>
+ 
+    Login
+ 
+    </a>
+ 
+   <a mat-button [matMenuTriggerFor]="dropdown">
+ 
+   About Us
+ 
+   </a>
+ 
+   <mat-menu #dropdown>
+ 
+   <button mat-menu-item routerLink="/">Contact Details</button>
+ 
+   <button mat-menu-item routerLink="/">CEO Messsage</button>
+ 
+    </mat-menu>
+ 
+    
+ 
+     </mat-toolbar>
+ 
+    
+ 
+     <router-outlet></router-outlet>
+ 
+   </mat-sidenav-container>
+ 
+  

@@ -1,0 +1,29 @@
+<div style="background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_tjInWP7Wz8dix5s98byG75d1VkEQmM1mVw&usqp=CAU); background-size: cover; height: 525px;">
+    <div class="login">
+    <form style="margin-top: 150px;background-color: azure;height: 250px;" [formGroup]="loginForm" (ngSubmit)="OnSubmit()">
+    
+        <mat-form-field appearance="fill" style="margin-top: 20px;">
+            <mat-label>UserName</mat-label>
+            <mat-icon matSuffix class="material-icon">username</mat-icon>
+            <input matInput formControlName = "username">
+            <mat-error *ngIf="loginForm.controls['username'].invalid && loginForm.controls['username'].hasError('required')">Enter valid username</mat-error>
+        </mat-form-field>
+    
+    <br>
+    
+    <mat-form-field appearance="fill">
+        <mat-label>Enter your password</mat-label>
+        <input matInput [type]="hide ? 'password' : 'text'" formControlName = "password">
+        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+    
+        <mat-error *ngIf="loginForm.controls['password'].invalid && loginForm.controls['password'].hasError('required')"> Enter Valid Password</mat-error>
+    
+      </mat-form-field><br>
+    
+        <button mat-raised-button color="primary">Login</button>
+    
+        </form>
+    
+    </div></div>
