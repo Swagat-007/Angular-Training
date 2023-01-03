@@ -1,0 +1,151 @@
+<mat-stepper #stepper class="step">
+    
+    <mat-step [stepControl]="basicform">
+        <form [formGroup]="basicform">
+            <ng-template matStepLabel>Basic Information</ng-template>
+           <div class="form">
+            
+            <div>
+            <mat-form-field appearance="fill">
+                <mat-label>Full Name</mat-label>
+                <mat-icon matSuffix>name</mat-icon>
+                <input matInput formControlName = "fullname">
+                <mat-error *ngIf="basicform.controls['fullname'].invalid && basicform.controls['fullname'].hasError('required')">You must enter a atleat 6 character</mat-error>
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+                <mat-label>Enter your email</mat-label>
+                <mat-icon matSuffix class="material-icon">email</mat-icon>
+                <input matInput placeholder="pat@example.com" formControlName = "email" required>
+                <mat-error *ngIf="basicform.controls['email'].invalid && basicform.controls['email'].hasError('required')">You must enter a valid email</mat-error>
+              </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field appearance="fill">
+                <mat-label>Father's Name</mat-label>
+                <mat-icon matSuffix>name</mat-icon>
+                <input matInput formControlName = "fathersname">
+                <mat-error *ngIf="basicform.controls['fathersname'].invalid && basicform.controls['fathersname'].hasError('required')">You must enter a valid name</mat-error>
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+                <mat-label>Mother's Name</mat-label>
+                <mat-icon matSuffix>name</mat-icon>
+                <input matInput formControlName = "mothersname">
+                <mat-error *ngIf="basicform.controls['mothersname'].invalid && basicform.controls['mothersname'].hasError('required')">You must enter a valid name</mat-error>
+            </mat-form-field>
+        </div>
+        <div style="background-color: white;width: 300px;margin-left: 200px;">
+            <mat-radio-group aria-label="Select an option" formControlName = "gender" style="margin-left: 10px;">
+                <mat-label>Gender</mat-label>
+               
+                <mat-radio-button value="M">Male</mat-radio-button>
+                <mat-icon matSuffix class="material-icon">male</mat-icon>
+                <mat-radio-button value="F">Female</mat-radio-button>
+                <mat-icon matSuffix class="material-icon">female</mat-icon>
+                
+              </mat-radio-group>
+              <mat-error *ngIf="basicform.controls['gender'].hasError('required') && basicform.controls['gender'].invalid">You must enter a value</mat-error>
+             </div><br>
+             <div>
+                <mat-form-field appearance="fill" >
+                    <mat-label>Choose a date</mat-label>
+                    <input matInput [matDatepicker]="picker" formControlName = "dob">
+                    <mat-hint>MM/DD/YYYY</mat-hint>
+                    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                    <mat-error *ngIf="basicform.controls['dob'].invalid && basicform.controls['dob'].hasError('required')">You must enter a value</mat-error>
+                </mat-form-field>
+                
+                <mat-form-field appearance="fill">
+                    <mat-label>Mobile No</mat-label>
+                    <mat-icon matSuffix class="material-icon">phone</mat-icon>
+                    <input matInput formControlName = "mob">
+                    <mat-error *ngIf="basicform.controls['mob'].invalid && basicform.controls['mob'].hasError('required')">You must enter a Mobile No.</mat-error>
+                </mat-form-field>
+                </div>    
+                <div>
+                    <button mat-raised-button color="primary" matStepperNext>Next</button>
+                </div>
+                </div>
+        </form>
+
+    </mat-step>
+    <mat-step [stepControl]="bankdetails">
+        <form [formGroup]="bankdetails">
+            <ng-template matStepLabel>Bank Details</ng-template>
+            <div class="form">
+            <div>
+            <mat-form-field appearance="fill">
+                <mat-label>Full Name</mat-label>
+                <mat-icon matSuffix>name</mat-icon>
+                <input matInput placeholder="Enter FullName" formControlName = "fullname">
+                
+            </mat-form-field>
+            
+            <mat-form-field appearance="fill">
+                <mat-label>Account No.</mat-label>
+                <mat-icon matSuffix>bank</mat-icon>
+                <input matInput placeholder="Enter Account No." formControlName="accountNo">
+            </mat-form-field></div><div>
+            <mat-form-field appearance="fill">
+                <mat-label>Bank Name</mat-label>
+                <mat-icon matSuffix>bank</mat-icon>
+                <input matInput placeholder="Enter Bank Name" formControlName="bankName">
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+                <mat-label>IFSC Code</mat-label>
+                <mat-icon matSuffix>ifsc</mat-icon>
+                <input matInput placeholder="Enter IFSC Code" formControlName="ifsc">
+            </mat-form-field></div>
+            <div>
+                <mat-radio-group aria-label="Select an option" formControlName = "mobilebanking" style="margin-left: 10px;">
+                    <mat-label>Mobile Banking</mat-label>
+                   
+                    <mat-radio-button value="Yes">Yes</mat-radio-button>
+                   
+                    <mat-radio-button value="No">No</mat-radio-button>
+                    
+                    
+                  </mat-radio-group><br>
+                  <mat-radio-group aria-label="Select an option" formControlName = "netbanking" style="margin-left: 10px;">
+                    <mat-label>Internet Banking</mat-label>
+                   
+                    <mat-radio-button value="Yes">Yes</mat-radio-button>
+                    
+                    <mat-radio-button value="No">No</mat-radio-button>
+                    
+                  </mat-radio-group>
+            </div>
+            <div>
+                <button mat-raised-button color="primary" matStepperPrevious>Back</button>
+                <button mat-raised-button color="primary" matStepperNext>Next</button>
+            </div></div>
+        </form>
+    </mat-step>
+    <mat-step [stepControl]="address">
+        <ng-template matStepLabel>Address</ng-template>
+        
+        <form [formGroup]="address">
+            <div class="form">
+            <mat-form-field appearance="fill">
+                <mat-label>Present Address</mat-label>
+                
+                <input matInput placeholder="Enter Present Address" formControlName="presentaddr" (input)="count()">
+                <mat-error *ngIf="address.controls['presentaddr'].invalid && address.controls['presentaddr'].hasError('required')">You must enter a valid Address</mat-error>
+            </mat-form-field>
+            <p style="color: red;">Word Limit Remaining {{60-wc}}</p>
+            <mat-form-field appearance="fill">
+                <mat-label>Permanent Address</mat-label>
+                
+                <input matInput placeholder="Enter Permanent Address" formControlName="permanentaddr" (input)="count1()">
+                <mat-error *ngIf="address.controls['permanentaddr'].invalid && address.controls['permanentaddr'].hasError('required')">You must enter a valid Address</mat-error>
+            </mat-form-field>
+            <p style="color: red;">Word Limit Remaining {{60-wc1}}</p>
+            
+            <div>
+                <button mat-raised-button color="primary" matStepperPrevious>Back</button>
+                <button mat-raised-button color="primary" (click)="OnSubmit()">Submit</button>
+                <button mat-raised-button color="primary" (click)="stepper.reset()">Reset</button>
+            </div></div>
+        </form>
+    </mat-step>
+</mat-stepper>
