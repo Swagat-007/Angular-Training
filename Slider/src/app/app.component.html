@@ -1,0 +1,32 @@
+<div class="form"><br><br>
+  <mat-form-field appearance="fill">
+  <mat-label>Enter Min Value</mat-label>
+  <input matInput [(ngModel)]="minValue" type="number">
+</mat-form-field>&nbsp;
+<mat-form-field appearance="fill">
+  <mat-label>Enter Max Value</mat-label>
+  <input matInput [(ngModel)]="maxValue" type="number">
+  </mat-form-field>&nbsp;
+  <mat-form-field appearance="fill">
+  <mat-label>Enter Step Value</mat-label>
+  <input matInput [(ngModel)]="stepValue" type="number">
+  </mat-form-field>&nbsp;
+  <mat-form-field appearance="fill">
+    <mat-label>Enter Value</mat-label>
+    <input matInput [(ngModel)]="sliderValue" type="number">
+  </mat-form-field>
+  <br>
+  <br><br><br>
+<div>
+  <div style="border: solid black; border-width: 5px;  background-color: lightblue;  width:200px;margin-left: 150px;">
+  <p>Value = {{sliderValue}}</p>
+    <p>MinValue = {{minValue}}</p>
+    <p>MaxValue = {{maxValue}}</p>
+    <p>StepValue= {{stepValue}}</p></div>
+    <br><br><br>
+  <mat-slider [min]="minValue" [max]="maxValue" discrete style="width: 500px;">
+    <input matSliderThumb [value]="sliderValue" [step]="stepValue">
+  </mat-slider>
+</div>
+
+</div>
